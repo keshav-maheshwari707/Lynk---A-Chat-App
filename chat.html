@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <button
+        id="themeToggleBtn"
+        class="theme-toggle"
+        onclick="toggleDarkMode()"
+      >
+        🌙 Toggle to Dark Mode
+      </button>
+
+      <h2>Chat with Friend</h2>
+      <div id="chatBox" class="chat-box"></div>
+      <input type="text" id="messageInput" placeholder="Type a message..." />
+
+      <div
+        id="typingIndicator"
+        style="display: none; color: gray; margin: 5px 0"
+      >
+        Friend is typing...
+      </div>
+
+      <div style="display: flex; gap: 10px; flex-wrap: wrap">
+        <button onclick="sendMessage()">Send</button>
+
+        <!-- Call Controls -->
+        <div id="callControls" style="display: none; gap: 10px">
+          <button
+            onclick="endCall()"
+            id="endCallBtn"
+            style="background-color: #f44336"
+          >
+            End Call
+          </button>
+        </div>
+
+        <button onclick="startCall()" id="startCallBtn">Start Call</button>
+        <audio id="remoteAudio" autoplay></audio>
+
+        <button onclick="clearChat()" style="background-color: #f44336">
+          Clear Chat
+        </button>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
